@@ -1,0 +1,36 @@
+<script src="vendor/deeplearn.js"></script>
+<script src="vendor/tmp/dist/bundle.js"></script>
+
+<style>
+#cat {
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+#canvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+</style>
+
+<img id="cat" height="416" width="416" crossorigin="anonymous"></img>
+
+<canvas id="canvas" height="416" width="416"></canvas>
+
+<br />
+
+<div id="result">Status</div>
+<br />
+
+<select id="image" oninput="loadImage()">
+	<option value="images/raccoon1.jpg">raccoon1</option>
+	<option value="images/raccoon2.jpg">raccoon2</option>
+	<option value="images/raccoon3.jpg">raccoon3</option>
+	<option value="images/raccoon4.jpg">raccoon4</option>
+	<option value="images/raccoon5.jpg">raccoon5</option>
+	<option value="images/raccoon5.jpg">raccoon5</option>
+</select>
+
+<script src="js/main.js" charset="utf-8"></script>

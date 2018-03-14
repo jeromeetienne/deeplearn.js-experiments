@@ -1,0 +1,32 @@
+<script>
+async function createVideoWebcam(){
+	return new Promise((resolve, reject) => {
+		// getUserMedia polyfill
+		navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia
+		// request getUserMedia
+		navigator.getUserMedia({
+			video: true
+		}, (stream) => {
+			// create element
+			var videoEl = document.createElement('video')
+			videoEl.setAttribute('autoplay', '')
+			videoEl.setAttribute('muted', '')
+			videoEl.setAttribute('playsinline', '')
+			videoEl.src = window.URL.createObjectURL(stream)
+			// wait until it is loaded
+			videoEl.addEventListener('loadeddata', () => {
+				resolve(videoEl)
+			}, false)
+		}, (error) => {
+			// handle error
+			console.log(error)
+			reject()
+		})
+	})
+}
+
+(async function(){
+	var videoEl = await createVideoWebcam()
+	document.body.appendChild(videoEl)	
+})()
+</script>

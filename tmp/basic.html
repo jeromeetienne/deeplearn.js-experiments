@@ -1,0 +1,14 @@
+<script src="../vendor/deeplearn.js"></script>
+<script>
+	var math = dl.ENV.math
+	var a = dl.Array1D.new([1, 2, 3])
+	var b = dl.Scalar.new(2)
+
+	var result = math.add(a, b)
+
+	// Option 1: With a Promise.
+	result.data().then(data => console.log(data)) // Float32Array([3, 4, 5])
+
+	// Option 2: Synchronous download of data. This is simpler, but blocks the UI.
+	console.log(result.dataSync())
+</script>
